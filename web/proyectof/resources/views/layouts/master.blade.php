@@ -22,8 +22,8 @@
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link active" aria-current="page" href="{{route('agregar_producto')}}">Registrar Productos</a>
-                 
-                  
+                  <a class="nav-link " href="{{route('agregar_cliente')}}" >Registrar Clientes</a>
+                  <a class="nav-link " href="{{route('ver_cliente')}}" >Ver Clientes</a>
                   <a class="nav-link " href="{{route('producto_venta')}}" >Ver Productos</a>
                  
                   <a class="nav-link " href="#" >Usuario</a>

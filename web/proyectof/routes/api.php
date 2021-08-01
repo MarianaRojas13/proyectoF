@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ClientesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +22,7 @@ Route::get("productos/get",[ProdutosController::class,"getProductos"]);
 Route::get("datosproductos/get",[ProdutosController::class,"getDatosProductos"]);
 Route::post("productos/post",[ProdutosController::class,"crearProductos"]);
 Route::post("productos/delete",[ProdutosController::class,"eliminarProducto"]);
+
+Route::get("clientes/get",[ClientesController::class,"getClientes"]);
+Route::post("clientes/post",[ClientesController::class,"crearClientes"]);
+Route::post("clientes/delete",[ClientesController::class,"eliminarClientes"]);
