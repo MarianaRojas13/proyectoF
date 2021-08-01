@@ -23,6 +23,8 @@ Route::get("datosproductos/get",[ProdutosController::class,"getDatosProductos"])
 Route::post("productos/post",[ProdutosController::class,"crearProductos"]);
 Route::post("productos/delete",[ProdutosController::class,"eliminarProducto"]);
 
+Route::post("productos/update",[ProdutosController::class,"actualizarProducto"]);
+
 Route::get("clientes/get",[ClientesController::class,"getClientes"]);
 Route::post("clientes/post",[ClientesController::class,"crearClientes"]);
 Route::post("clientes/delete",[ClientesController::class,"eliminarClientes"]);

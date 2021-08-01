@@ -3,7 +3,7 @@ const iniciarEliminacion=async function(){
     let resp=await Swal.fire({title:"Tas seguro?",text:"Esta operacion es irreversible"
     ,icon:"error",showCancelButton:true});
     if(resp.isConfirmed){
-        //se llama a la funcion eliminarProducto
+    
         if(await eliminarProducto(id)){
             let producto= await getDatosProductos();
             cargarTabla(producto);
@@ -17,13 +17,14 @@ const iniciarEliminacion=async function(){
 
 }
 
+
 const cargarTabla =(productos)=>{
     let tbody=document.querySelector("#tbody-producto");
     tbody.innerHTML="";
     for(let i=0;i<productos.length;++i){
         let tr=document.createElement("tr");
         let tdNombre=document.createElement("td");
-        tdNombre.innerText=productos[i].nombre;//estos nombres salen de la migracion,precio,nombre...
+        tdNombre.innerText=productos[i].nombre;
         let tdPrecio=document.createElement("td");
         tdPrecio.innerText=productos[i].precio;
         let tdStock=document.createElement("td");
@@ -31,10 +32,17 @@ const cargarTabla =(productos)=>{
         let tdTipo=document.createElement("td");
         tdTipo.innerText=productos[i].tipo;
         let tdAcciones=document.createElement("td");
+        let botonActualizar=document.createElement("button");
+        botonActualizar.innerText="Actualizar";
+        botonActualizar.classList.add("btn","btn-info");
+        
         let botonEliminar=document.createElement("button");
+        botonActualizar.idProducto=productos[i].id;
+       
+        tdAcciones.appendChild(botonActualizar);
         botonEliminar.innerText="Eliminar";
         botonEliminar.classList.add("btn","btn-danger");
-        botonEliminar.idProducto=productos[i].id;
+        botonEliminar.idProducto=productos[i].id; 
         botonEliminar.addEventListener("click", iniciarEliminacion);
         tdAcciones.appendChild(botonEliminar);
         tr.appendChild(tdNombre);
@@ -50,4 +58,5 @@ const cargarTabla =(productos)=>{
 document.addEventListener("DOMContentLoaded",async()=>{
     let producto= await getDatosProductos();
     cargarTabla(producto);
+    
 });

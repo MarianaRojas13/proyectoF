@@ -5,7 +5,7 @@ const getDatosProductos = async()=>{
 //crearProductos
 const crearProductos =async(producto)=>{
     let resp =await axios.post("api/productos/post",producto,{
-        //estructura de peticiones post, siempre va
+        
         headers:{
             'Content-Type': 'application/json'
         }
@@ -15,7 +15,20 @@ const crearProductos =async(producto)=>{
 const eliminarProducto =async(id)=>{
     try{
         let resp =await axios.post("api/productos/delete",{id},{
-            //estructura de peticiones post, siempre va
+           
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        return resp.data="ok";
+    }catch(e){
+        return false;
+    }   
+};
+const actualizarProducto =async(id)=>{
+    try{
+        let resp =await axios.post("api/productos/update",{id},{
+            
             headers:{
                 'Content-Type': 'application/json'
             }

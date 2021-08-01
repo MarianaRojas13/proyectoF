@@ -5,7 +5,7 @@
       <div class="col-12 col-md-6 col-lg-5 mx-auto">
           <div class="card">
               <div class="card-header bg-primary">
-                  <span>Agregar Cliente</span>
+                  <span><ion-icon name="person-add-outline"></ion-icon> Agregar Cliente</span>
               </div>
               <div class="card-body">
                   <div class="mb-3">
@@ -13,6 +13,7 @@
                       <input type="text" id="nombre-txt" class="form-control">
                   </div>
                   <div class="mb-3">
+                    <ion-icon name="call-outline"></ion-icon>
                       <label for="fono-txt" class="form-label">Telefono</label>
                       <input type="number" id="fono-txt" class="form-control">
                   </div>

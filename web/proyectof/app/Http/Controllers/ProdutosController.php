@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    public function getProductos(){/*retorna los productos */
+    public function getProductos(){
         $productos=array(); 
         $productos[]="Agenda";
         $productos[]="Album";
@@ -14,12 +14,12 @@ class ProdutosController extends Controller
         $productos[]="Croquera";
         return $productos;
     }
-    public function getDatosProductos(){/*llama a toda la informacion que se manda y se usa el model */
+    public function getDatosProductos(){
         $prod=Producto::all();
         return $prod;
-    }/*el requiest trae los datos del formulario */
+    }
     public function crearProductos(Request $request){
-        $input=$request->all();//se crea un arreglo con todo lo que se mando.
+        $input=$request->all();
         $producto=new Producto();
         $producto->nombre=$input["nombre"];
         $producto->precio=$input["precio"];
@@ -31,10 +31,20 @@ class ProdutosController extends Controller
     public function eliminarProducto(Request $request){
         $input=$request->all();
         $id=$input["id"];
-        //eloquent:el administrador de bs de laravel se llama Eloquent
         $producto= Producto::findOrFail($id);
-        //para eliinar se llama al metodo delete
         $producto->delete();
         return "ok";
+    }
+    public function actualizarProducto(Request $request){
+        $input=$request->all();
+        $id=$input["id"];
+        $producto= Producto::findOrFail($id);
+        $producto->nombre=$input["nombre"];
+        $producto->precio=$input["precio"];
+        $producto->stock=$input["stock"];
+        $producto->tipo=$input["tipo"];
+        $producto->save();
+        return $producto;
+
     }
 }
