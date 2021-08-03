@@ -16,6 +16,23 @@ const iniciarEliminacion=async function(){
     }
 
 }
+const iniciarActualizacion=async function(){
+    let id=this.idProducto;
+    let resp=await Swal.fire({title:"Tas seguro?",text:"comenzará la edición"
+    ,icon:"info",showCancelButton:true});
+    if(resp.isConfirmed){
+    
+        if(await obtenerProducto(id)){
+            
+            let producto= await getDatosProductos();
+            cargarTabla(producto);
+            Swal.fire("Producto actualizado");
+        }
+    }else{
+        Swal.fire("Cancelado");
+    }
+
+}
 
 
 const cargarTabla =(productos)=>{
@@ -34,12 +51,13 @@ const cargarTabla =(productos)=>{
         let tdAcciones=document.createElement("td");
         let botonActualizar=document.createElement("button");
         botonActualizar.innerText="Actualizar";
+     //   botonActualizar.setAttribute("onclick",`obtenerProducto(${productos[i].id})`);
+        botonActualizar.addEventListener("click", iniciarActualizacion);
         botonActualizar.classList.add("btn","btn-info");
-        
-        let botonEliminar=document.createElement("button");
         botonActualizar.idProducto=productos[i].id;
-       
         tdAcciones.appendChild(botonActualizar);
+
+        let botonEliminar=document.createElement("button");
         botonEliminar.innerText="Eliminar";
         botonEliminar.classList.add("btn","btn-danger");
         botonEliminar.idProducto=productos[i].id; 
@@ -54,6 +72,13 @@ const cargarTabla =(productos)=>{
     };
 
 };
+
+/*document.body.addEventListener('click',function(event){
+    if(event.target.className == 'actualizar-producto'){
+        alert('una alerta por actualizacion');
+        // capturar valor del producto id del elento clikeado
+    }
+})*/
 
 document.addEventListener("DOMContentLoaded",async()=>{
     let producto= await getDatosProductos();

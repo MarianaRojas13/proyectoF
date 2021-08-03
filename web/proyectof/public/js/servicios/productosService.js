@@ -25,15 +25,105 @@ const eliminarProducto =async(id)=>{
         return false;
     }   
 };
-const actualizarProducto =async(id)=>{
-    try{
-        let resp =await axios.post("api/productos/update",{id},{
+const actualizarProducto =async()=>{
+    let formulario = document.forms['frmEditProduct'].elements;
+
+    // validar campos
+
+    let postForm = {
+        id :formulario[0].value,
+        nombre:formulario[1].value,
+        precio:formulario[2].value,
+        stock:formulario[3].value
+    }
+
+   try{
+        let resp =await axios.post("api/productos/update",postForm,{
             
             headers:{
                 'Content-Type': 'application/json'
             }
         });
-        return resp.data="ok";
+        
+        if(resp.status == 200){
+            Swal.fire({
+                title:'Actualización',
+                icon:'success',
+                text:'Actualizacion correcta',
+                showCancelButton:false,
+                confirmButtonText:'Continuar'
+            }).then(
+               window.location.reload()
+
+               /*let producto = await getDatosProductos()
+                 cargarTabla(producto);*/
+            )
+        }else{
+            Swal.fire('Error','Error al actualizar','error')
+        }
+
+    }catch(e){
+        return false;
+    }
+};
+
+const obtenerProducto =async(id)=>{
+    
+    // antes de crear el modal hay que eliminarlo primero
+    try{
+        let resp =await axios.post("api/productos/obtener",{id},{
+            
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if(resp.status == 200){
+            
+
+            let htmlModal  = '<div class="modal" id="editarProducto" tabindex="-1">'
+            +'<div class="modal-dialog">'
+            +'<div class="modal-content">'
+            +'    <div class="modal-header">'
+            +'      <h5 class="modal-title">Tabla para modificar</h5>'
+            +'      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>'
+            +'    </div>'
+            +'    <div class="modal-body">'
+            +'      <form id="frmEditProduct">'
+            +'      <input type="hidden" value="'+resp.data.id+'">'
+            +'      <div class="form-group">'
+            +'            <label>Nombre</label>'
+            +'              <input type="text" class="form-group" value="'+resp.data.nombre+'">'
+            +'       </div>'
+            +'      <div class="form-group">'
+            +'            <label>Precio </label>'
+            +'              <input type="text" class="form-group" value="'+resp.data.precio+'">'
+            +'       </div>'
+            +'      <div class="form-group ">'
+            +'            <label>Stock </label>'
+            +'                <input type="text" class="form-group" value="'+resp.data.stock+'">'
+            +'       </div>'
+            +'      </form>'
+            +'    </div>'
+            +'  <div class="modal-footer">'
+            +'      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>'
+            +'      <button type="button" class="btn btn-primary" onclick="actualizarProducto()">Actualizar</button>'
+            +'    </div>'
+            +'  </div>'
+            +'</div>'
+            +'</div>';
+
+            let modal = document.createElement('div');
+            modal.innerHTML = htmlModal;
+            document.body.appendChild(modal);
+
+            let myModal = new bootstrap.Modal(document.getElementById('editarProducto') );
+            myModal.show();
+
+        } // es ok
+        else{
+            Swal.fire('Title', 'Error en llamada','warning');
+        } // es un error
     }catch(e){
         return false;
     }   

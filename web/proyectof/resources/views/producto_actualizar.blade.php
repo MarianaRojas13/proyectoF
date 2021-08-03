@@ -9,8 +9,8 @@
             </div>
             <div class="card-body">
                 <div class="mb-3">
-                    <label for="nombreP-txt" class="form-label">Nombre</label>
-                    <input type="text" id="nombreP-txt" class="form-control">
+                    <label for="nombre-txt"  class="form-label">Nombre</label>
+                    <input type="text" id="nombre-txt" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="precio-txt" class="form-label">Precio</label>

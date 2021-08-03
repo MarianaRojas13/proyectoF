@@ -24,6 +24,7 @@ Route::post("productos/post",[ProdutosController::class,"crearProductos"]);
 Route::post("productos/delete",[ProdutosController::class,"eliminarProducto"]);
 
 Route::post("productos/update",[ProdutosController::class,"actualizarProducto"]);
+Route::post("productos/obtener",[ProdutosController::class,"obtenerProducto"]);
 
 Route::get("clientes/get",[ClientesController::class,"getClientes"]);
 Route::post("clientes/post",[ClientesController::class,"crearClientes"]);

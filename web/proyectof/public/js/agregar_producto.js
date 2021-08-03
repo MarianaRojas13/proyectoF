@@ -1,15 +1,15 @@
 const cargarProductos =async()=>{
-    let resultado=await axios.get("api/productos/get");/*busca los productos*/
-    let producto= resultado.data;/*guarda los productos */
-    let tipoSelect=document.querySelector("#tipo-select");/*obtiene el select */
+    let resultado=await axios.get("api/productos/get");
+    let producto= resultado.data;
+    let tipoSelect=document.querySelector("#tipo-select");
     
-    producto.forEach(m=> {/*se recorren */
-        let option=document.createElement("option");/*se crean las opciones y se guardan en el select */
+    producto.forEach(m=> {
+        let option=document.createElement("option");
         option.innerText=m;
         tipoSelect.appendChild(option);
     });
 };
-//ejecuta un codigo asegurandoce que todos los recursosos esten cargados antes de ejecutar
+
 document.addEventListener("DOMContentLoaded",()=>{
     cargarProductos();
 });

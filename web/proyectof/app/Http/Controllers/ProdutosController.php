@@ -35,16 +35,32 @@ class ProdutosController extends Controller
         $producto->delete();
         return "ok";
     }
-    public function actualizarProducto(Request $request){
+    public function obtenerProducto(Request $request){
         $input=$request->all();
         $id=$input["id"];
         $producto= Producto::findOrFail($id);
-        $producto->nombre=$input["nombre"];
-        $producto->precio=$input["precio"];
-        $producto->stock=$input["stock"];
-        $producto->tipo=$input["tipo"];
-        $producto->save();
         return $producto;
+    }
+    public function actualizarProducto(Request $request){
+        $input=$request->all();
+        $id=$input["id"];
+        $producto = Producto::where('id','=',$input["id"])->update(
+            array(
+                "nombre" => $input["nombre"],
+                "precio" => $input["precio"],
+                "stock" => $input["stock"]
+            )
+        );
+
+            return $producto;
+        
+        //$producto= Producto::findOrFail($id);
+       // $producto->nombre=$input["nombre"];
+       // $producto->precio=$input["precio"];
+       // $producto->stock=$input["stock"];
+        //$producto->tipo=$input["tipo"];
+        //$producto->save();
+       // return $producto;
 
     }
 }
