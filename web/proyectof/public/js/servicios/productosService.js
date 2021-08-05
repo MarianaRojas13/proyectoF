@@ -34,7 +34,8 @@ const actualizarProducto =async()=>{
         id :formulario[0].value,
         nombre:formulario[1].value,
         precio:formulario[2].value,
-        stock:formulario[3].value
+        stock:formulario[3].value,
+        tipo:formulario[4].value
     }
 
    try{
@@ -54,9 +55,6 @@ const actualizarProducto =async()=>{
                 confirmButtonText:'Continuar'
             }).then(
                window.location.reload()
-
-               /*let producto = await getDatosProductos()
-                 cargarTabla(producto);*/
             )
         }else{
             Swal.fire('Error','Error al actualizar','error')
@@ -103,6 +101,10 @@ const obtenerProducto =async(id)=>{
             +'            <label>Stock </label>'
             +'                <input type="text" class="form-group" value="'+resp.data.stock+'">'
             +'       </div>'
+            +'      <div class="form-group ">'
+            +'            <label>Tipo </label>'
+            +'                <input type="text" class="form-group" value="'+resp.data.tipo+'">'
+            +'       </div>'
             +'      </form>'
             +'    </div>'
             +'  <div class="modal-footer">'
@@ -120,10 +122,10 @@ const obtenerProducto =async(id)=>{
             let myModal = new bootstrap.Modal(document.getElementById('editarProducto') );
             myModal.show();
 
-        } // es ok
+        } 
         else{
             Swal.fire('Title', 'Error en llamada','warning');
-        } // es un error
+        } 
     }catch(e){
         return false;
     }   

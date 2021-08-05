@@ -16,14 +16,26 @@
                     <input type="date" id="fecha-txt" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="prod-txt" class="form-label">Productos comprados</label>
-                    <input type="number" id="prod-txt" class="form-control">
+                    <label for="prodN-txt" class="form-label"> Productos comprados</label>
+                    <textarea id="prodN-txt" class="form-control">
+
+                    </textarea>
+                    
                 </div>
                 <div class="mb-3">
-                    <label for="tipo-select" class="form-label">Tipo</label>
-                    <select  id="tipo-select" class="form-select">
-
-                    </select>
+                    <label for="cantidad-txt" class="form-label">Cantidad</label>
+                    <input type="number" id="cantidad-txt" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="tipo-rb" class="form-label">Tipo</label>
+                    <div class="form-chek">
+                        <input type="radio" name="tipo-rb" checked id="tipo-rb-G" class="form-check-input" value="si">
+                        <label for="tipo-rb-G" class="form-check-label">Genérico</label>
+                    </div>
+                    <div class="form-chek">
+                        <input type="radio" name="tipo-rb" id="tipo-rb-P" class="form-check-input" value="no">
+                        <label for="tipo-rb-P" class="form-check-label">Personalizado</label>
+                    </div>
                 </div>
                 <div class="card-footer d-grid gap-1">
                     <button id="registrar-btn" type="button" class="btn btn-info">Agregar</button>
@@ -32,4 +44,8 @@
         </div>
     </div>
 </div>
+@endsection
+@section('javascript')
+    <script src="{{asset('js/servicios/pedidosService.js')}}"></script>
+    <script src="{{asset('js/agregar_pedido.js')}}"></script>
 @endsection

@@ -25,7 +25,9 @@
                   <a class="nav-link " href="{{route('agregar_cliente')}}" >Registrar Clientes</a>
                   <a class="nav-link " href="{{route('ver_cliente')}}" >Ver Clientes</a>
                   <a class="nav-link " href="{{route('producto_venta')}}" >Ver Productos</a>
-                  <a class="nav-link " href="{{route('producto_actualizar')}}" >Actualizar</a>
+                  <a class="nav-link " href="{{route('agregar_pedido')}}" >Registrar Pedido</a>
+                  <a class="nav-link " href="{{route('ver_pedido')}}" >Ver Pedido</a>
+
                   <a class="nav-link " href="#" >Usuario</a>
                 </div>
               </div>
@@ -37,6 +39,7 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <!--   <script src="src/loadingOverlay.js"></script>-->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

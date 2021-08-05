@@ -20,6 +20,10 @@ const iniciarActualizacion=async function(){
     let id=this.idProducto;
     let resp=await Swal.fire({title:"Tas seguro?",text:"comenzará la edición"
     ,icon:"info",showCancelButton:true});
+  //  var spinHandle = loadingOverlay().activate();
+  //  setTimeout(function() {
+  //      loadingOverlay().cancel(spinHandle);
+  //  }, 3000);
     if(resp.isConfirmed){
     
         if(await obtenerProducto(id)){
