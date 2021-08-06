@@ -2,8 +2,8 @@ const getPedido = async()=>{
     let resp= await axios.get("api/datospedido/get");
     return resp.data;
 }
-const crearPedido =async(producto)=>{
-    let resp =await axios.post("api/pedido/post",producto,{
+const crearPedido =async(pedido)=>{
+    let resp =await axios.post("api/pedido/post",pedido,{
         
         headers:{
             'Content-Type': 'application/json'

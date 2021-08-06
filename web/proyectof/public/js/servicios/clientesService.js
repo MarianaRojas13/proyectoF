@@ -1,5 +1,5 @@
   
-//obtiene los datos ,todos los datos de los clientes
+
 const getClientes = async()=>{
     let resp= await axios.get("api/clientes/get");
     return resp.data;
@@ -30,7 +30,7 @@ const eliminarClientes =async(id)=>{
 };
 
 const actualizarClientes =async()=>{
-    let formulario = document.forms['frmEditProduct'].elements;
+    let formulario = document.forms['frmEditCliente'].elements;
 
     let postForm = {
         id :formulario[0].value,
@@ -89,7 +89,7 @@ const obtenerClientes =async(id)=>{
             +'      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>'
             +'    </div>'
             +'    <div class="modal-body">'
-            +'      <form id="frmEditProduct" >'
+            +'      <form id="frmEditCliente" >'
             +'      <input type="hidden" value="'+resp.data.id+'">'
             +'      <div class="form-group mb-3">'
             +'            <label>Nombre</label>'
