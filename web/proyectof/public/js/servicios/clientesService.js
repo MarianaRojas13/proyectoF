@@ -28,3 +28,108 @@ const eliminarClientes =async(id)=>{
         return false;
     }   
 };
+
+const actualizarClientes =async()=>{
+    let formulario = document.forms['frmEditProduct'].elements;
+
+    let postForm = {
+        id :formulario[0].value,
+        nombre:formulario[1].value,
+        fono:formulario[2].value,
+        direccion:formulario[3].value,
+        nomP:formulario[4].value
+    }
+
+   try{
+        let resp =await axios.post("api/clientes/update",postForm,{
+            
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if(resp.status == 200){
+            Swal.fire({
+                title:'Actualización',
+                icon:'success',
+                text:'Actualizacion correcta',
+                showCancelButton:false,
+                confirmButtonText:'Continuar'
+            }).then(
+               window.location.reload()
+            )
+        }else{
+            Swal.fire('Error','Error al actualizar','error')
+        }
+
+    }catch(e){
+        return false;
+    }
+};
+
+const obtenerClientes =async(id)=>{
+    
+    
+    try{
+        let resp =await axios.post("api/clientes/obtener",{id},{
+            
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if(resp.status == 200){
+            
+
+            let htmlModal  = '<div class="modal" id="editarCliente" tabindex="-1">'
+            +'<div class="modal-dialog modal-lg">'
+            +'<div class="modal-content">'
+            +'    <div class="modal-header">'
+            +'      <h5 class="modal-title ">Tabla para modificar</h5>'
+            +'      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>'
+            +'    </div>'
+            +'    <div class="modal-body">'
+            +'      <form id="frmEditProduct" >'
+            +'      <input type="hidden" value="'+resp.data.id+'">'
+            +'      <div class="form-group mb-3">'
+            +'            <label>Nombre</label>'
+            +'              <input type="text-center" class="form-group" value="'+resp.data.nombre+'">'
+            +'       </div>'
+            +'      <div class="form-group mb-3">'
+            +'            <label>Telefono </label>'
+            +'              <input type="number" class="form-group" value="'+resp.data.fono+'">'
+            +'       </div>'
+            +'      <div class="form-group mb-3 ">'
+            +'            <label>Dirección </label>'
+            +'                <input type="text-center" class="form-group" value="'+resp.data.direccion+'">'
+            +'       </div>'
+            +'      <div class="form-group mb-3">'
+            +'            <label>nombre producto </label>'
+            +'                <input type="text" class="form-group" value="'+resp.data.nomP+'">'
+            +'       </div>'
+            +'      </form>'
+            +'    </div>'
+            +'  <div class="modal-footer">'
+            +'      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>'
+            +'      <button type="button" class="btn btn-primary" onclick="actualizarClientes()">Actualizar</button>'
+            +'    </div>'
+            +'  </div>'
+            +'</div>'
+            +'</div>';
+
+            let modal = document.createElement('div');
+            modal.innerHTML = htmlModal;
+            document.body.appendChild(modal);
+
+            let myModal = new bootstrap.Modal(document.getElementById('editarCliente') );
+            myModal.show();
+
+        } 
+        else{
+            Swal.fire('Title', 'Error en llamada','warning');
+        } 
+      
+    }catch(e){
+        return false;
+    }   
+};

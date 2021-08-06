@@ -20,17 +20,13 @@ const iniciarActualizacion=async function(){
     let id=this.idProducto;
     let resp=await Swal.fire({title:"Tas seguro?",text:"comenzará la edición"
     ,icon:"info",showCancelButton:true});
-  //  var spinHandle = loadingOverlay().activate();
-  //  setTimeout(function() {
-  //      loadingOverlay().cancel(spinHandle);
-  //  }, 3000);
+
     if(resp.isConfirmed){
     
         if(await obtenerProducto(id)){
-            
-            let producto= await getDatosProductos();
+           let producto= await getDatosProductos();
             cargarTabla(producto);
-            Swal.fire("Producto actualizado");
+            Swal.fire("Producto actualizado");        
         }
     }else{
         Swal.fire("Cancelado");
@@ -77,12 +73,7 @@ const cargarTabla =(productos)=>{
 
 };
 
-/*document.body.addEventListener('click',function(event){
-    if(event.target.className == 'actualizar-producto'){
-        alert('una alerta por actualizacion');
-        // capturar valor del producto id del elento clikeado
-    }
-})*/
+
 
 document.addEventListener("DOMContentLoaded",async()=>{
     let producto= await getDatosProductos();

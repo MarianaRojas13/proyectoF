@@ -24,3 +24,4 @@ Route:: view("/ver_cliente","ver_cliente")->name("ver_cliente");
 
 Route:: view("/agregar_pedido","agregar_pedido")->name("agregar_pedido");
 Route:: view("/ver_pedido","ver_pedido")->name("ver_pedido");
+Route:: view("/principal","principal")->name("principal");

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 document.querySelector("#registrar-btn").addEventListener("click", async()=>{
-    let nombre= document.querySelector("#nombreP-txt").value;
+    let nombre= document.querySelector("#nombreP-txt").value.trim();
     let precio= document.querySelector("#precio-txt").value;
     let stock=document.querySelector("#stock-txt").value;
     let tipo=document.querySelector("#tipo-select").value;

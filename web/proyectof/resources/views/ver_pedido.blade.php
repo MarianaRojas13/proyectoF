@@ -7,12 +7,13 @@
                     <tr class="table-info">
                         <td>Nombre cliente</td>
                         <td>Fecha pedido</td>
+                        <td>Nombre productos comprados</td>
                         <td>Cantidad de productos comprados</td>
                         <td>Tipo</td>
                         <td>Acciones</td>
                     </tr>
                 </thead>
-                <tbody id="tbody-producto">
+                <tbody id="tbody-pedido">
 
                 </tbody>
             </table>

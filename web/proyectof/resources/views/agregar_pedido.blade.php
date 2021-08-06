@@ -27,15 +27,10 @@
                     <input type="number" id="cantidad-txt" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="tipo-rb" class="form-label">Tipo</label>
-                    <div class="form-chek">
-                        <input type="radio" name="tipo-rb" checked id="tipo-rb-G" class="form-check-input" value="si">
-                        <label for="tipo-rb-G" class="form-check-label">Genérico</label>
-                    </div>
-                    <div class="form-chek">
-                        <input type="radio" name="tipo-rb" id="tipo-rb-P" class="form-check-input" value="no">
-                        <label for="tipo-rb-P" class="form-check-label">Personalizado</label>
-                    </div>
+                    <label for="tipo-select" class="form-label">Tipo</label>
+                    <select  id="tipo-select" class="form-select">
+
+                    </select>
                 </div>
                 <div class="card-footer d-grid gap-1">
                     <button id="registrar-btn" type="button" class="btn btn-info">Agregar</button>

@@ -28,8 +28,6 @@ const eliminarProducto =async(id)=>{
 const actualizarProducto =async()=>{
     let formulario = document.forms['frmEditProduct'].elements;
 
-    // validar campos
-
     let postForm = {
         id :formulario[0].value,
         nombre:formulario[1].value,
@@ -67,7 +65,7 @@ const actualizarProducto =async()=>{
 
 const obtenerProducto =async(id)=>{
     
-    // antes de crear el modal hay que eliminarlo primero
+    
     try{
         let resp =await axios.post("api/productos/obtener",{id},{
             
@@ -80,28 +78,28 @@ const obtenerProducto =async(id)=>{
             
 
             let htmlModal  = '<div class="modal" id="editarProducto" tabindex="-1">'
-            +'<div class="modal-dialog">'
+            +'<div class="modal-dialog modal-lg">'
             +'<div class="modal-content">'
             +'    <div class="modal-header">'
-            +'      <h5 class="modal-title">Tabla para modificar</h5>'
+            +'      <h5 class="modal-title ">Tabla para modificar</h5>'
             +'      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>'
             +'    </div>'
             +'    <div class="modal-body">'
-            +'      <form id="frmEditProduct">'
+            +'      <form id="frmEditProduct" >'
             +'      <input type="hidden" value="'+resp.data.id+'">'
-            +'      <div class="form-group">'
+            +'      <div class="form-group mb-3">'
             +'            <label>Nombre</label>'
-            +'              <input type="text" class="form-group" value="'+resp.data.nombre+'">'
+            +'              <input type="text-center" class="form-group" value="'+resp.data.nombre+'">'
             +'       </div>'
-            +'      <div class="form-group">'
+            +'      <div class="form-group mb-3">'
             +'            <label>Precio </label>'
-            +'              <input type="text" class="form-group" value="'+resp.data.precio+'">'
+            +'              <input type="number" class="form-group" value="'+resp.data.precio+'">'
             +'       </div>'
-            +'      <div class="form-group ">'
+            +'      <div class="form-group mb-3 ">'
             +'            <label>Stock </label>'
-            +'                <input type="text" class="form-group" value="'+resp.data.stock+'">'
+            +'                <input type="text-center" class="form-group" value="'+resp.data.stock+'">'
             +'       </div>'
-            +'      <div class="form-group ">'
+            +'      <div class="form-group mb-3">'
             +'            <label>Tipo </label>'
             +'                <input type="text" class="form-group" value="'+resp.data.tipo+'">'
             +'       </div>'
@@ -126,6 +124,7 @@ const obtenerProducto =async(id)=>{
         else{
             Swal.fire('Title', 'Error en llamada','warning');
         } 
+      
     }catch(e){
         return false;
     }   

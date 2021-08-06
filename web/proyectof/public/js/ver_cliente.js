@@ -16,6 +16,23 @@ const iniciarEliminacion=async function(){
     }
 
 }
+const iniciarActualizacion=async function(){
+    let id=this.idCliente;
+    let resp=await Swal.fire({title:"Tas seguro?",text:"comenzará la edición"
+    ,icon:"info",showCancelButton:true});
+
+    if(resp.isConfirmed){
+    
+        if(await obtenerClientes(id)){
+           let producto= await getClientes();
+            cargarTabla(producto);
+            Swal.fire("Producto actualizado");        
+        }
+    }else{
+        Swal.fire("Cancelado");
+    }
+
+}
 
 const cargarTabla =(clientes)=>{
     let tbody=document.querySelector("#tbody-cliente");
@@ -23,7 +40,7 @@ const cargarTabla =(clientes)=>{
     for(let i=0;i<clientes.length;++i){
         let tr=document.createElement("tr");
         let tdNombre=document.createElement("td");
-        tdNombre.innerText=clientes[i].nombre;//estos nombres salen de la migracion,precio,nombre...
+        tdNombre.innerText=clientes[i].nombre;
         let tdPrecio=document.createElement("td");
         tdPrecio.innerText=clientes[i].fono;
         let tdStock=document.createElement("td");
@@ -37,6 +54,13 @@ const cargarTabla =(clientes)=>{
         botonEliminar.idCliente=clientes[i].id;
         botonEliminar.addEventListener("click", iniciarEliminacion);
         tdAcciones.appendChild(botonEliminar);
+        let botonActualizar=document.createElement("button");
+        botonActualizar.innerText="Actualizar";
+        botonActualizar.addEventListener("click", iniciarActualizacion);
+        botonActualizar.classList.add("btn","btn-info");
+        botonActualizar.idCliente=clientes[i].id;
+        tdAcciones.appendChild(botonActualizar);
+
         tr.appendChild(tdNombre);
         tr.appendChild(tdPrecio);
         tr.appendChild(tdStock);

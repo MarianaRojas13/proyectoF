@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\PedidosController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,6 +27,17 @@ Route::post("productos/delete",[ProdutosController::class,"eliminarProducto"]);
 Route::post("productos/update",[ProdutosController::class,"actualizarProducto"]);
 Route::post("productos/obtener",[ProdutosController::class,"obtenerProducto"]);
 
+Route::post("clientes/update",[ClientesController::class,"actualizarClientes"]);
+Route::post("clientes/obtener",[ClientesController::class,"obtenerClientes"]);
+
 Route::get("clientes/get",[ClientesController::class,"getClientes"]);
 Route::post("clientes/post",[ClientesController::class,"crearClientes"]);
 Route::post("clientes/delete",[ClientesController::class,"eliminarClientes"]);
+
+Route::get("pedido/get",[PedidosController::class,"getTipos"]);
+Route::get("datospedido/get",[PedidosController::class,"getPedido"]);
+Route::post("pedido/post",[PedidosController::class,"crearPedido"]);
+Route::post("pedido/delete",[PedidosController::class,"eliminarPedido"]);
+
+Route::post("pedido/update",[PedidosController::class,"actualizarPedido"]);
+Route::post("pedido/obtener",[PedidosController::class,"obtenerPedido"]);

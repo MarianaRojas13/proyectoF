@@ -30,4 +30,33 @@ class ClientesController extends Controller
         $cliente->delete();
         return "ok";
     }
+    public function obtenerClientes(Request $request){
+        $input=$request->all();
+        $id=$input["id"];
+        $cliente= Cliente::findOrFail($id);
+        return $cliente;
+    }
+    public function actualizarClientes(Request $request){
+        $input=$request->all();
+        $id=$input["id"];
+        $cliente = Cliente::where('id','=',$input["id"])->update(
+            array(
+                "nombre" => $input["nombre"],
+                "fono" => $input["fono"],
+                "direccion" => $input["direccion"],
+                "nomP" => $input["nomP"]
+            )
+        );
+
+            return $cliente;
+        
+        //$producto= Producto::findOrFail($id);
+       // $producto->nombre=$input["nombre"];
+       // $producto->precio=$input["precio"];
+       // $producto->stock=$input["stock"];
+        //$producto->tipo=$input["tipo"];
+        //$producto->save();
+       // return $producto;
+
+    }
 }

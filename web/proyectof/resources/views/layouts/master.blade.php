@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>ElefanteAzull</title>
   </head>
   
@@ -15,7 +16,7 @@
     <header class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"> ElefanteAzull</a>
+              <a class="navbar-brand" href="{{route('principal')}}"> <img src="{{asset('img/icono.png')}}" class="logo"> ElefanteAzull</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -28,7 +29,7 @@
                   <a class="nav-link " href="{{route('agregar_pedido')}}" >Registrar Pedido</a>
                   <a class="nav-link " href="{{route('ver_pedido')}}" >Ver Pedido</a>
 
-                  <a class="nav-link " href="#" >Usuario</a>
+                  <a class="nav-link " href="#" >Administradora</a>
                 </div>
               </div>
             </div>
