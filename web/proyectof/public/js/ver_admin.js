@@ -26,7 +26,7 @@ const iniciarActualizacion=async function(){
         if(await obtenerAdmin(id)){
            let producto= await getAdmin();
             cargarTabla(producto);
-            Swal.fire("Administradora actualizado");        
+            Swal.fire("Administradora actualizada");        
         }
     }else{
         Swal.fire("Cancelado");

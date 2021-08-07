@@ -9,7 +9,7 @@ const iniciarEliminacion=async function(){
             cargarTabla(cliente);
             Swal.fire(" Eliminado");
         }else{
-            Swal.fire("ERROR","No se encontro producto","error");
+            Swal.fire("ERROR","No se encontro cliente","error");
         }
     }else{
         Swal.fire("Cancelado");
@@ -18,7 +18,7 @@ const iniciarEliminacion=async function(){
 }
 const iniciarActualizacion=async function(){
     let id=this.idCliente;
-    let resp=await Swal.fire({title:"Tas seguro?",text:"comenzará la edición"
+    let resp=await Swal.fire({title:"Tas seguro?",text:"Comenzará la edición"
     ,icon:"info",showCancelButton:true});
 
     if(resp.isConfirmed){
@@ -26,7 +26,7 @@ const iniciarActualizacion=async function(){
         if(await obtenerClientes(id)){
            let producto= await getClientes();
             cargarTabla(producto);
-            Swal.fire("Producto actualizado");        
+            Swal.fire("Cliente actualizado");        
         }
     }else{
         Swal.fire("Cancelado");

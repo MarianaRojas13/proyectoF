@@ -27,7 +27,7 @@ const eliminarProducto =async(id)=>{
 };
 const actualizarProducto =async()=>{
     let formulario = document.forms['frmEditProduct'].elements;
-
+        
     let postForm = {
         id :formulario[0].value,
         nombre:formulario[1].value,
@@ -87,21 +87,17 @@ const obtenerProducto =async(id)=>{
             +'    <div class="modal-body">'
             +'      <form id="frmEditProduct" >'
             +'      <input type="hidden" value="'+resp.data.id+'">'
-            +'      <div class="form-group mb-3">'
+            +'      <div class="form-control mb-3 bg-primary text-light">'
             +'            <label>Nombre</label>'
-            +'              <input type="text-center" class="form-group" value="'+resp.data.nombre+'">'
+            +'              <input type="text-center" class="form-control" value="'+resp.data.nombre+'">'
             +'       </div>'
-            +'      <div class="form-group mb-3">'
+            +'      <div class="form-control mb-3 bg-primary text-light">'
             +'            <label>Precio </label>'
-            +'              <input type="number" class="form-group" value="'+resp.data.precio+'">'
+            +'              <input type="number" class="form-control" value="'+resp.data.precio+'">'
             +'       </div>'
-            +'      <div class="form-group mb-3 ">'
+            +'      <div class="form-control mb-3 bg-primary text-light ">'
             +'            <label>Stock </label>'
-            +'                <input type="text-center" class="form-group" value="'+resp.data.stock+'">'
-            +'       </div>'
-            +'      <div class="form-group mb-3">'
-            +'            <label>Tipo </label>'
-            +'                <input type="text" class="form-group" value="'+resp.data.tipo+'">'
+            +'                <input type="text-center" class="form-control" value="'+resp.data.stock+'">'
             +'       </div>'
             +'      </form>'
             +'    </div>'

@@ -9,7 +9,7 @@ const iniciarEliminacion=async function(){
             cargarTabla(pedido);
             Swal.fire("Pedido eliminado");
         }else{
-            Swal.fire("ERROR","No se encontro producto","error");
+            Swal.fire("ERROR","No se encontro pedido","error");
         }
     }else{
         Swal.fire("Cancelado");
