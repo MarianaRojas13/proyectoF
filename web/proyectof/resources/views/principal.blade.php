@@ -7,7 +7,3 @@
     </div>
 </div>
 @endsection
-@section('javascript')
-    <script src="{{asset('js/servicios/clientesService.js')}}"></script>
-    <script src="{{asset('js/ver_cliente.js')}}"></script>
-@endsection
