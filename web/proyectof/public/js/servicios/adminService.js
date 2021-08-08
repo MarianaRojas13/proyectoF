@@ -16,7 +16,7 @@ const crearAdmin =async(admin)=>{
 const eliminarAdmin =async(id)=>{
     try{
         let resp =await axios.post("api/admin/delete",{id},{
-            //estructura de peticiones post, siempre va
+            
             headers:{
                 'Content-Type': 'application/json'
             }

@@ -1,3 +1,4 @@
+
 const iniciarEliminacion=async function(){
     let id=this.idProducto;
     let resp=await Swal.fire({title:"Tas seguro?",text:"Esta operacion es irreversible"
@@ -51,7 +52,6 @@ const cargarTabla =(productos)=>{
         let tdAcciones=document.createElement("td");
         let botonActualizar=document.createElement("button");
         botonActualizar.innerText="Actualizar";
-     //   botonActualizar.setAttribute("onclick",`obtenerProducto(${productos[i].id})`);
         botonActualizar.addEventListener("click", iniciarActualizacion);
         botonActualizar.classList.add("btn","btn-info");
         botonActualizar.idProducto=productos[i].id;
@@ -74,8 +74,8 @@ const cargarTabla =(productos)=>{
 };
 
 
-
 document.addEventListener("DOMContentLoaded",async()=>{
+    
     let producto= await getDatosProductos();
     cargarTabla(producto);
     

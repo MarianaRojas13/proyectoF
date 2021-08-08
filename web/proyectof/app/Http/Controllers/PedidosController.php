@@ -52,8 +52,7 @@ class PedidosController extends Controller
                 "nombre" => $input["nombre"],
                 "fecha" => $input["fecha"],
                 "prodN" => $input["prodN"],
-                "cantidad" => $input["cantidad"],
-                "tipo" => $input["tipo"]
+                "cantidad" => $input["cantidad"]
             )
         );
 

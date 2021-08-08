@@ -32,8 +32,7 @@ const actualizarPedido =async()=>{
         nombre:formulario[1].value,
         fecha:formulario[2].value,
         prodN:formulario[3].value,
-        cantidad:formulario[4].value,
-        tipo:formulario[5].value
+        cantidad:formulario[4].value
     }
 
    try{

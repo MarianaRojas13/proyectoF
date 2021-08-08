@@ -35,7 +35,7 @@
           </div>
       </div>
   </div>
-
+  
 @endsection
 @section('javascript')
     <script src="{{asset('js/servicios/clientesService.js')}}"></script>

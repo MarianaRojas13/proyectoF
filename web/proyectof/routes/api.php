@@ -40,8 +40,8 @@ Route::get("datospedido/get",[PedidosController::class,"getPedido"]);
 Route::post("pedido/post",[PedidosController::class,"crearPedido"]);
 Route::post("pedido/delete",[PedidosController::class,"eliminarPedido"]);
 
-Route::post("admin/update",[PedidosController::class,"actualizarAdmin"]);
-Route::post("admin/obtener",[PedidosController::class,"obtenerAdmin"]);
+Route::post("pedido/update",[PedidosController::class,"actualizarPedido"]);
+Route::post("pedido/obtener",[PedidosController::class,"obtenerPedido"]);
 
 Route::post("admin/update",[AdminsController::class,"actualizarAdmin"]);
 Route::post("admin/obtener",[AdminsController::class,"obtenerAdmin"]);

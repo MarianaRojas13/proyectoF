@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <!--  <link rel="stylesheet" href="sortable-theme-dark.css" />-->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>ElefanteAzull</title>
   </head>
@@ -29,7 +30,8 @@
                   <a class="nav-link " href="{{route('agregar_pedido')}}" >Registrar Pedido</a>
                   <a class="nav-link " href="{{route('ver_pedido')}}" >Ver Pedido</a>
 
-                  <a class="nav-link " href="{{route('agregar_admin')}}" >Administradora</a>
+                  <a class="nav-link " href="{{route('agregar_admin')}}" >Administración</a>
+                  <a class="nav-link " href="{{route('ver_admin')}}" >ver admins</a>
                 </div>
               </div>
             </div>

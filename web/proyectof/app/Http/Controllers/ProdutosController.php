@@ -48,8 +48,7 @@ class ProdutosController extends Controller
             array(
                 "nombre" => $input["nombre"],
                 "precio" => $input["precio"],
-                "stock" => $input["stock"],
-                "tipo" => $input["tipo"]
+                "stock" => $input["stock"]
             )
         );
 

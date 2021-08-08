@@ -32,8 +32,8 @@ const actualizarProducto =async()=>{
         id :formulario[0].value,
         nombre:formulario[1].value,
         precio:formulario[2].value,
-        stock:formulario[3].value,
-        tipo:formulario[4].value
+        stock:formulario[3].value
+       
     }
 
    try{
