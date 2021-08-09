@@ -18,7 +18,7 @@ const crearClientes =async(cliente)=>{
 const eliminarClientes =async(id)=>{
     try{
         let resp =await axios.post("api/clientes/delete",{id},{
-            //estructura de peticiones post, siempre va
+           
             headers:{
                 'Content-Type': 'application/json'
             }
@@ -31,7 +31,7 @@ const eliminarClientes =async(id)=>{
 
 const actualizarClientes =async()=>{
     let formulario = document.forms['frmEditCliente'].elements;
-
+    
     let postForm = {
         id :formulario[0].value,
         nombre:formulario[1].value,

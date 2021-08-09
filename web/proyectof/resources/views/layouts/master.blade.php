@@ -10,6 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
   <!--  <link rel="stylesheet" href="sortable-theme-dark.css" />-->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>ElefanteAzull</title>
   </head>
   
@@ -17,7 +21,7 @@
     <header class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="{{route('principal')}}"> <img src="{{asset('img/icono.png')}}" class="logo"> ElefanteAzull</a>
+              <a class="navbar-brand" href="{{route('principal')}}"> <img src="{{asset('img/icono.png')}}" class="logo animate__animated animate__swing"> ElefanteAzull</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
