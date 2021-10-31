@@ -17,6 +17,19 @@ class AdminsController extends Controller
         $admin->cod=$input["cod"];
         $admin->save();
         return $admin;
+
+    }
+    public function store(){
+        if (auth()->attempt(request(['nombre','cod'])) == false){
+            return back()->withErrors([
+                'message' => 'El nombre es incorrecto'
+            ]);
+        }
+        return redirect()->to("/agregar_producto");
+    }
+    public function destroy(){
+        auth()->logout();
+        return redirect()->to("/");
     }
     public function eliminarAdmin(Request $request){
         $input=$request->all();

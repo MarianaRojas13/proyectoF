@@ -51,12 +51,16 @@ const cargarTabla =(productos)=>{
         tdTipo.innerText=productos[i].tipo;
         let tdAcciones=document.createElement("td");
         let botonActualizar=document.createElement("button");
-        botonActualizar.innerText="Actualizar";
+        botonActualizar.innerText="Modificar";
         botonActualizar.addEventListener("click", iniciarActualizacion);
         botonActualizar.classList.add("btn","btn-info");
         botonActualizar.idProducto=productos[i].id;
         tdAcciones.appendChild(botonActualizar);
-
+        let botonAjuste=document.createElement("button");
+        botonAjuste.innerText="Ajuste";
+        botonAjuste.classList.add("btn","btn-info");
+        botonAjuste.idProducto=productos[i].id;
+        tdAcciones.appendChild(botonAjuste);
         let botonEliminar=document.createElement("button");
         botonEliminar.innerText="Eliminar";
         botonEliminar.classList.add("btn","btn-danger");

@@ -49,3 +49,4 @@ Route::post("admin/obtener",[AdminsController::class,"obtenerAdmin"]);
 Route::get("admin/get",[AdminsController::class,"getAdmin"]);
 Route::post("admin/post",[AdminsController::class,"crearAdmin"]);
 Route::post("admin/delete",[AdminsController::class,"eliminarAdmin"]);
+Route::post("admin/obtener",[AdminsController::class,"store"]);
