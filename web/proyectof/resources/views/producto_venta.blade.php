@@ -6,6 +6,7 @@
             <table class="table table-hower table-bordered table-striped table-responsive">
                 <thead class="bg-info">
                     <tr class="table-info">
+                        <td>ID Producto</td>
                         <td>Nombre</td>
                         <td>Precio</td>
                         <td>Stock</td>

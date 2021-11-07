@@ -28,11 +28,13 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                  <a class="nav-link " aria-current="page" href="{{route('principal')}}">Productos</a>
                   <a class="nav-link " aria-current="page" href="{{route('agregar_producto')}}">Registrar Productos</a>
+                
+                  <a class="nav-link " href="{{route('ver_admin')}}" >Ver Admin</a>
+                  <a class="nav-link " href="{{route('agregar_ajuste')}}" >Agregar Ajustes</a>
                   <a class="nav-link " href="{{route('producto_venta')}}" >Ver Productos</a>
-                  <a class="nav-link " href="{{route('agregar_pedido')}}" >Registrar Pedido</a>
-                  <a class="nav-link " href="{{route('ver_pedido')}}" >Ver Pedido</a>
-                  <!--Creae el de ventas aqui-->
+                  <a class="nav-link " href="{{route('producto_venta')}}" >Salir</a>
                 </div>
               </div>
             </div>

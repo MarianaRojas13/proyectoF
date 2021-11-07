@@ -8,6 +8,7 @@ const iniciarEliminacion=async function(){
         if(await eliminarProducto(id)){
             let producto= await getDatosProductos();
             cargarTabla(producto);
+            cargarContenedor(producto);
             Swal.fire("Producto eliminado");
         }else{
             Swal.fire("ERROR","No se encontro producto","error");
@@ -19,7 +20,7 @@ const iniciarEliminacion=async function(){
 }
 const iniciarActualizacion=async function(){
     let id=this.idProducto;
-    let resp=await Swal.fire({title:"Tas seguro?",text:"comenzará la edición"
+    let resp=await Swal.fire({title:"Seguro de modificar?",text:"comenzará la edición"
     ,icon:"info",showCancelButton:true});
 
     if(resp.isConfirmed){
@@ -27,6 +28,7 @@ const iniciarActualizacion=async function(){
         if(await obtenerProducto(id)){
            let producto= await getDatosProductos();
             cargarTabla(producto);
+            cargarContenedor(producto);
             Swal.fire("Producto actualizado");        
         }
     }else{
@@ -36,11 +38,15 @@ const iniciarActualizacion=async function(){
 }
 
 
+
+
 const cargarTabla =(productos)=>{
     let tbody=document.querySelector("#tbody-producto");
     tbody.innerHTML="";
     for(let i=0;i<productos.length;++i){
         let tr=document.createElement("tr");
+        let tdId=document.createElement("td");
+        tdId.innerText=productos[i].id;
         let tdNombre=document.createElement("td");
         tdNombre.innerText=productos[i].nombre;
         let tdPrecio=document.createElement("td");
@@ -56,17 +62,16 @@ const cargarTabla =(productos)=>{
         botonActualizar.classList.add("btn","btn-info");
         botonActualizar.idProducto=productos[i].id;
         tdAcciones.appendChild(botonActualizar);
-        let botonAjuste=document.createElement("button");
-        botonAjuste.innerText="Ajuste";
-        botonAjuste.classList.add("btn","btn-info");
-        botonAjuste.idProducto=productos[i].id;
-        tdAcciones.appendChild(botonAjuste);
+     
+        
+       
         let botonEliminar=document.createElement("button");
         botonEliminar.innerText="Eliminar";
         botonEliminar.classList.add("btn","btn-danger");
         botonEliminar.idProducto=productos[i].id; 
         botonEliminar.addEventListener("click", iniciarEliminacion);
         tdAcciones.appendChild(botonEliminar);
+        tr.appendChild(tdId);
         tr.appendChild(tdNombre);
         tr.appendChild(tdPrecio);
         tr.appendChild(tdStock);
@@ -78,9 +83,11 @@ const cargarTabla =(productos)=>{
 };
 
 
+
 document.addEventListener("DOMContentLoaded",async()=>{
     
     let producto= await getDatosProductos();
     cargarTabla(producto);
+    
     
 });

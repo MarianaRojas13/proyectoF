@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
+    public function ajustes(){
+        return $this->hasMany("App/Models/Ajuste","ID_Producto");
+    }
 }

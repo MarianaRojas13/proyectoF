@@ -22,20 +22,19 @@
       
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="{{route('login')}}"> <img src="{{asset('img/icono.png')}}" class="logo animate__animated animate__swing"> ElefanteAzull</a>
+              <a class="navbar-brand" href=""> <img src="{{asset('img/icono.png')}}" class="logo animate__animated animate__swing"> ElefanteAzull</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link " aria-current="page" href="{{route('agregar_producto')}}">Registrar Productos</a>
-                  <a class="nav-link " href="{{route('agregar_cliente')}}" >Registrar Clientes</a>
-                  <a class="nav-link " href="{{route('agregar_admin')}}" >Agregar Admin</a>
-               
-                  <a class="nav-link " href="{{route('producto_venta')}}" >Ver Productos</a>
-                  <a class="nav-link " href="{{route('agregar_pedido')}}" >Registrar Pedido</a>
-                  <a class="nav-link " href="{{route('ver_pedido')}}" >Ver Ventas</a>
-   
+                  <a class="nav-link " aria-current="page" href="{{route('principal')}}">Productos</a>
+                
+                  <a class="nav-link " href="{{route('agregar_admin')}}" >Quienes somos</a>
+                  <!--<a href="{{ url('/logout') }}"> logout </a>-->
+                  <a class="nav-link " href="{{route('ver_admin')}}" >Como comprar</a>
+                  
+                  <a class="nav-link " href="{{route('login')}}" >Login</a>
                   
                 </div>
               </div>

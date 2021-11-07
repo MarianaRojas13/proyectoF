@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\AjustesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -49,4 +50,9 @@ Route::post("admin/obtener",[AdminsController::class,"obtenerAdmin"]);
 Route::get("admin/get",[AdminsController::class,"getAdmin"]);
 Route::post("admin/post",[AdminsController::class,"crearAdmin"]);
 Route::post("admin/delete",[AdminsController::class,"eliminarAdmin"]);
-Route::post("admin/obtener",[AdminsController::class,"store"]);
+
+
+Route::get("ajuste/get",[AjustesController::class,"getAjustes"]);
+Route::post("ajuste/post",[AjustesController::class,"save"]);
+Route::post("ajuste/obtener",[AjustesController::class,"obtenerProductoAjuste"]);
+

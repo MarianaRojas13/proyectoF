@@ -18,14 +18,14 @@ const iniciarEliminacion=async function(){
 }
 const iniciarActualizacion=async function(){
     let id=this.idAdmin;
-    let resp=await Swal.fire({title:"Tas seguro?",text:"Comenzará la edición"
+    let resp=await Swal.fire({title:"seguro?",text:"Comenzará la edición"
     ,icon:"info",showCancelButton:true});
 
     if(resp.isConfirmed){
     
         if(await obtenerAdmin(id)){
-           let producto= await getAdmin();
-            cargarTabla(producto);
+           let admins= await getAdmin();
+            cargarTabla(admins);
             Swal.fire("Administradora actualizada");        
         }
     }else{

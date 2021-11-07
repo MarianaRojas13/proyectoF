@@ -64,6 +64,7 @@ const actualizarAdmin =async()=>{
     }
 };
 
+
 const obtenerAdmin =async(id)=>{
     
     
