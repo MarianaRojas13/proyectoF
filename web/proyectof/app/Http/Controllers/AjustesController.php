@@ -34,6 +34,12 @@ class AjustesController extends Controller
         $ajuste->save();
         return $ajuste;
     }
-
+    public function eliminarAjuste(Request $request){
+        $input=$request->all();
+        $id=$input["id"];
+        $producto= Ajuste::findOrFail($id);
+        $producto->delete();
+        return "ok";
+    }
     
 }

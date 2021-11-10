@@ -41,6 +41,12 @@ class ProdutosController extends Controller
         $producto= Producto::findOrFail($id);
         return $producto;
     }
+    public function filtrarProducto(Request $request){
+        $input=$request->all();
+        $filtro=$input["filtro"];
+        $consolas=Producto::where("tipo",$filtro)->get();
+        return $consolas;
+    }
     public function actualizarProducto(Request $request){
         $input=$request->all();
         $id=$input["id"];

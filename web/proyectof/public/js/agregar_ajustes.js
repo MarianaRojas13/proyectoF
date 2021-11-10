@@ -22,12 +22,21 @@ document.querySelector("#agregar-btn").addEventListener("click", async()=>{
     let cantidad=document.querySelector("#cantidad-txt").value.trim();
     let motivo=document.querySelector("#motivo-txt").value;
     let producto=document.querySelector("#id-producto").value;
-    let ajuste={};
-    ajuste.fecha = fecha;
-    ajuste.tipoajuste = tipoajuste;
-    ajuste.cantidad= cantidad;
-    ajuste.motivo= motivo;
-    ajuste.ID_Producto=producto;
-    await save(ajuste);
-    await Swal.fire("Bien","se registro el ajuste","info");
+    if(fecha==""){
+        await Swal.fire("Error","debe agregar una fecha","info");
+    }if(tipoajuste=="" || motivo==""){
+        await Swal.fire("Error","debe llenar los campos","info");
+    }if(cantidad==0 || cantidad<0){
+        await Swal.fire("Error","debe ingresar un numero valido","info");
+    }else{
+        let ajuste={};
+        ajuste.fecha = fecha;
+        ajuste.tipoajuste = tipoajuste;
+        ajuste.cantidad= cantidad;
+        ajuste.motivo= motivo;
+        ajuste.ID_Producto=producto;
+        await save(ajuste);
+        await Swal.fire("Bien","se registro el ajuste","success");
+        window.location.href="ver_ajustes";
+    }
 })

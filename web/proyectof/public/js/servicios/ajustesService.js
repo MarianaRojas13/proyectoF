@@ -12,3 +12,17 @@ const save =async(ajuste)=>{
     });
     return resp.data;
 };
+
+const eliminarAjuste =async(id)=>{
+    try{
+        let resp =await axios.post("api/ajuste/delete",{id},{
+           
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        return resp.data="ok";
+    }catch(e){
+        return false;
+    }   
+};

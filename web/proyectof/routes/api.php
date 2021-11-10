@@ -25,6 +25,7 @@ Route::get("productos/get",[ProdutosController::class,"getProductos"]);
 Route::get("datosproductos/get",[ProdutosController::class,"getDatosProductos"]);
 Route::post("productos/post",[ProdutosController::class,"crearProductos"]);
 Route::post("productos/delete",[ProdutosController::class,"eliminarProducto"]);
+Route::get("producto/filtrar",[ProdutosController::class,"filtrarProducto"]);
 
 Route::post("productos/update",[ProdutosController::class,"actualizarProducto"]);
 Route::post("productos/obtener",[ProdutosController::class,"obtenerProducto"]);
@@ -55,4 +56,6 @@ Route::post("admin/delete",[AdminsController::class,"eliminarAdmin"]);
 Route::get("ajuste/get",[AjustesController::class,"getAjustes"]);
 Route::post("ajuste/post",[AjustesController::class,"save"]);
 Route::post("ajuste/obtener",[AjustesController::class,"obtenerProductoAjuste"]);
+
+Route::post("ajuste/delete",[AjustesController::class,"eliminarAjuste"]);
 

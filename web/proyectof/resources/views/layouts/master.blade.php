@@ -28,7 +28,7 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link " aria-current="page" href="{{route('principal')}}">Productos</a>
+                  <a class="nav-link " aria-current="page" href="{{route('principal2')}}">Catalogo</a>
                 
                   <a class="nav-link " href="{{route('agregar_admin')}}" >Quienes somos</a>
                   <!--<a href="{{ url('/logout') }}"> logout </a>-->

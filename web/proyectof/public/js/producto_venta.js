@@ -1,7 +1,16 @@
-
+const cargarProductos=async()=>{
+    let filtro=document.querySelector("#filtro");
+    let producto=await getProd();
+    producto.forEach(m=>{
+        let option=document.createElement("option");
+        option.innerText=m;
+        option.value=m;
+        filtro.appendChild(option);
+    });
+};
 const iniciarEliminacion=async function(){
     let id=this.idProducto;
-    let resp=await Swal.fire({title:"Tas seguro?",text:"Esta operacion es irreversible"
+    let resp=await Swal.fire({title:"Seguro de eliminar?",text:"Esta operacion es irreversible"
     ,icon:"error",showCancelButton:true});
     if(resp.isConfirmed){
     
@@ -24,13 +33,17 @@ const iniciarActualizacion=async function(){
     ,icon:"info",showCancelButton:true});
 
     if(resp.isConfirmed){
-    
-        if(await obtenerProducto(id)){
-           let producto= await getDatosProductos();
-            cargarTabla(producto);
-            cargarContenedor(producto);
-            Swal.fire("Producto actualizado");        
-        }
+       
+            if(await obtenerProducto(id)){
+           
+            
+                let producto= await getDatosProductos();
+                cargarTabla(producto);
+                cargarContenedor(producto);
+                Swal.fire("Producto actualizado");  
+            
+            }
+        
     }else{
         Swal.fire("Cancelado");
     }
@@ -82,10 +95,14 @@ const cargarTabla =(productos)=>{
 
 };
 
-
+document.querySelector("#filtro").addEventListener("change",async()=>{
+    let filtro=document.querySelector("#filtro").value;
+    let producto=await getDatosProductos(filtro);
+    cargarTabla(producto);
+})
 
 document.addEventListener("DOMContentLoaded",async()=>{
-    
+    await cargarProductos();
     let producto= await getDatosProductos();
     cargarTabla(producto);
     

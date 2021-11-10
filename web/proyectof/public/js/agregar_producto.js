@@ -1,6 +1,5 @@
 const cargarProductos =async()=>{
-    let resultado=await axios.get("api/productos/get");
-    let producto= resultado.data;
+    let producto= await getProd();
     let tipoSelect=document.querySelector("#tipo-select");
     
     producto.forEach(m=> {

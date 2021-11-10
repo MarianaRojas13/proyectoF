@@ -37,5 +37,6 @@
 @endsection
 @section('javascript')
     <script src="{{asset('js/servicios/productosService.js')}}"></script>
+    <script src="{{asset('js/servicios/producServices.js')}}"></script>
     <script src="{{asset('js/agregar_producto.js')}}"></script>
 @endsection

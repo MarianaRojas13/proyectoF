@@ -1,5 +1,12 @@
-const getDatosProductos = async()=>{
-    let resp= await axios.get("api/datosproductos/get");
+
+
+const getDatosProductos = async(filtro="todos")=>{
+    let resp;
+    if(filtro=="todos"){
+      resp= await axios.get("api/datosproductos/get"); 
+    } else{
+        resp=await axios.get(`api/producto/filtrar?filtro=${filtro}`);
+    }
     return resp.data;
 }
 //crearProductos
@@ -35,7 +42,7 @@ const actualizarProducto =async()=>{
         stock:formulario[3].value
        
     }
-
+  
    try{
         let resp =await axios.post("api/productos/update",postForm,{
             
@@ -57,10 +64,11 @@ const actualizarProducto =async()=>{
         }else{
             Swal.fire('Error','Error al actualizar','error')
         }
-
+    
     }catch(e){
         return false;
     }
+
 };
 
 const obtenerProducto =async(id)=>{
@@ -73,7 +81,7 @@ const obtenerProducto =async(id)=>{
                 'Content-Type': 'application/json'
             }
         });
-        
+       
         if(resp.status == 200){
             
 
@@ -120,7 +128,7 @@ const obtenerProducto =async(id)=>{
         else{
             Swal.fire('Title', 'Error en llamada','warning');
         } 
-      
+    
     }catch(e){
         return false;
     }   
